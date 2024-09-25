@@ -19,17 +19,17 @@ class Page2 extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 70),
                   const CircleAvatar(
-                    radius: 40,
+                    radius: 50,
                     backgroundImage: AssetImage(
                         'assets/pp.png'),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 20),
                   const Text(
                     'Anton Witjaksono',
                     style: TextStyle(
@@ -44,19 +44,19 @@ class Page2 extends StatelessWidget {
                     title: 'About',
                     content: 'I went to Wikrama Vocational School majoring in Software and Game Development. I focus on the front-end and am very passionate about learning new things',
                     backgroundColor:
-                        const Color.fromARGB(248, 33, 115, 209).withOpacity(0.8),
+                        const Color.fromARGB(248, 49, 145, 255).withOpacity(0.8),
                   ),
                   buildSection(
                     title: 'Quote',
                     content: 'Dalam mempersiapkan pertempuran, saya selalu menemukan bahwa rencana tidak berguna, tetapi perencanaan sangat diperlukan.',
                     backgroundColor:
-                        const Color.fromARGB(248, 166, 199, 237).withOpacity(0.8),
+                        const Color.fromARGB(248, 176, 203, 235).withOpacity(0.8),
                   ),
                   buildSkillSection(
                     title: 'Skill',
                     skills: ['HTML', 'CSS', 'JAVASCRIPT', 'PHP', 'VueJS', 'React'],
                     backgroundColor:
-                        const Color.fromARGB(248, 33, 115, 209).withOpacity(0.8),
+                        const Color.fromARGB(248, 49, 145, 255).withOpacity(0.8),
                   ),
                 ],
               ),
