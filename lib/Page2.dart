@@ -10,10 +10,10 @@ class Page2 extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/wp.png'),
-                fit: BoxFit.cover,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF4facfe), Color(0xFF00f2fe)],
               ),
             ),
           ),
@@ -26,37 +26,49 @@ class Page2 extends StatelessWidget {
                   const SizedBox(height: 70),
                   const CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage(
-                        'assets/pp.png'),
+                    backgroundImage: AssetImage('assets/pp.png'),
                   ),
                   const SizedBox(height: 20),
                   const Text(
                     'Anton Witjaksono',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 0, 0,
-                          0),
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 20),
                   buildSection(
                     title: 'About',
-                    content: 'I went to Wikrama Vocational School majoring in Software and Game Development. I focus on the front-end and am very passionate about learning new things',
-                    backgroundColor:
-                        const Color.fromARGB(248, 49, 145, 255).withOpacity(0.8),
+                    content: 'I went to Wikrama Vocational School majoring in Software and Game Development. I focus on the front-end and am very passionate about learning new things.',
+                    backgroundColor: Colors.white.withOpacity(0.8),
                   ),
                   buildSection(
                     title: 'Quote',
                     content: 'Dalam mempersiapkan pertempuran, saya selalu menemukan bahwa rencana tidak berguna, tetapi perencanaan sangat diperlukan.',
-                    backgroundColor:
-                        const Color.fromARGB(248, 176, 203, 235).withOpacity(0.8),
+                    backgroundColor: Colors.white.withOpacity(0.8),
                   ),
                   buildSkillSection(
-                    title: 'Skill',
-                    skills: ['HTML', 'CSS', 'JAVASCRIPT', 'PHP', 'VueJS', 'React'],
-                    backgroundColor:
-                        const Color.fromARGB(248, 49, 145, 255).withOpacity(0.8),
+                    title: 'Skills',
+                    skills: ['JavaScript', 'PHP', 'VueJS', 'React'],
+                    backgroundColor: Colors.white.withOpacity(0.8),
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      backgroundColor: const Color(0xFF4facfe),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Go Back',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
                   ),
                 ],
               ),
@@ -67,14 +79,13 @@ class Page2 extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membuat section umum
   Widget buildSection({
     required String title,
     required String content,
     required Color? backgroundColor,
   }) {
     return Container(
-      width: double.infinity, // Lebar penuh untuk semua kartu
+      width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -98,7 +109,7 @@ class Page2 extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
@@ -146,24 +157,22 @@ class Page2 extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
           const SizedBox(height: 8),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
             children: skills.map((skill) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2.0),
-                child: Text(
-                  ' $skill',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.black,
-                  ),
+              return Chip(
+                label: Text(
+                  skill,
+                  style: const TextStyle(color: Colors.white),
                 ),
+                backgroundColor: const Color(0xFF4facfe),
               );
             }).toList(),
           ),
